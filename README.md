@@ -42,3 +42,7 @@ $ apollo service:push --endpoint http://localhost:4000
 ```
 
 The services and the gateway must be up and running.
+
+> You can install the `apollo` tools with:
+>
+>     $ npm install -g apollo
