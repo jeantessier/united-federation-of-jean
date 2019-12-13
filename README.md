@@ -6,6 +6,12 @@ Apollo Graph Manager to join them into a single GraphQL endpoint.
 Based on [this Apollo tutorial](https://www.apollographql.com/docs/apollo-server/getting-started/)
 and [this federation tutorial](https://www.apollographql.com/docs/apollo-server/federation/introduction/).
 
+## Installation
+
+Create a schema in [Apollo Graph Manager](https://engine.apollographql.com/).
+Copy `.env.template` to `.env` and replace the placeholder with your Apollo
+Graph Manager API key.
+
 ## Running It
 
 ### Starting the Federated Services
