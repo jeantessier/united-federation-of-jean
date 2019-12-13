@@ -17,7 +17,7 @@ const typeDefs = gql`
   # clients can execute, along with the return type for each. In this
   # case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
-    popular_books: [PopularBook]
+    popularBooks: [PopularBook]
   }
 `;
 
@@ -36,7 +36,7 @@ const books = [
 // schema. This resolver retrieves books from the "books" array above.
 const resolvers = {
   Query: {
-    popular_books: () => books,
+    popularBooks: () => books,
   },
   Book: {
     __resolveReference(book, { fetchBookByTitle }) {
