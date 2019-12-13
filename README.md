@@ -26,3 +26,13 @@ done
 ### Placing Queries
 
 Point your browser to http://localhost:4000/.
+
+## Coordinating with Graph Manager
+
+Get the aggregate schema into Graph Manager with:
+
+```bash
+$ apollo service:push --endpoint http://localhost:4000
+```
+
+The services and the gateway must be up and running.
