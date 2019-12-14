@@ -8,8 +8,8 @@ const typeDefs = gql`
   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
 
   # This "Book" type defines the queryable fields for every book in our data source.
-  type PopularBook @key(fields: "title") {
-    title: String!
+  extend type Book @key(fields: "title") {
+    title: String! @external
     author: String
   }
 
@@ -17,7 +17,7 @@ const typeDefs = gql`
   # clients can execute, along with the return type for each. In this
   # case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
-    popularBooks: [PopularBook]
+    popularBooks: [Book]
   }
 `;
 
