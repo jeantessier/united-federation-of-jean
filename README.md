@@ -9,7 +9,7 @@ and [this federation tutorial](https://www.apollographql.com/docs/apollo-server/
 ## Installation
 
 Create a schema in [Apollo Graph Manager](https://engine.apollographql.com/).
-Copy `.env.template` to `.env` and replace the placeholder with your Apollo
+Copy each `.env.template` to `.env` and replace the placeholder with your Apollo
 Graph Manager API key.
 
 ## Running It
@@ -17,7 +17,7 @@ Graph Manager API key.
 ### Starting the Federated Services
 
 ```bash
-for s in service-?
+for s in super-service service-?
 do
   (cd $s; npm install; node index.js &)
 done
@@ -38,10 +38,13 @@ Point your browser to http://localhost:4000/.
 Get the aggregate schema into Graph Manager with:
 
 ```bash
-$ apollo service:push --endpoint http://localhost:4000
+apollo service:push --endpoint http://localhost:4000 --key [your Graph Manager API key]
 ```
 
-The services and the gateway must be up and running.
+If you are in a folder with a `.env` file, `apollo` will read the key from it if
+you don't provide one on the command line.
+
+The services and the gateway all must be up and running.
 
 > You can install the `apollo` tools with:
 >
