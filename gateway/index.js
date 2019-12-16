@@ -1,6 +1,8 @@
 const { ApolloServer } = require('apollo-server');
 const { ApolloGateway } = require("@apollo/gateway");
 
+require('dotenv').config();
+
 const gateway = new ApolloGateway({
   serviceList: [
     { name: 'super', url: 'http://localhost:4100' },
@@ -12,6 +14,7 @@ const gateway = new ApolloGateway({
 // Pass the ApolloGateway to the ApolloServer constructor
 const server = new ApolloServer({
   gateway,
+  engine: { apiKey: process.env.ENGINE_API_KEY },
 
   // Disable subscriptions (not currently supported with ApolloGateway)
   subscriptions: false,
