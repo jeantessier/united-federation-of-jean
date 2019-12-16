@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const gateway = new ApolloGateway({
   serviceList: [
-    { name: 'super', url: 'http://localhost:4100' },
+    { name: 'shared', url: 'http://localhost:4100' },
     { name: 'a', url: 'http://localhost:4001' },
     { name: 'b', url: 'http://localhost:4002' },
   ]
