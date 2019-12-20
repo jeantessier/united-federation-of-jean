@@ -20,7 +20,14 @@ const typeDefs = gql`
   }
 `;
 
-const books = [];
+const books = [
+  { title: 'Harry Potter and the Chamber of Secrets' },
+  { title: 'Jurassic Park' },
+  { title: 'The Hobbit' },
+  { title: 'The Fellowship of the Ring' },
+  { title: 'The Two Towers' },
+  { title: 'The Return of the King' },
+];
 
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
@@ -29,7 +36,7 @@ const resolvers = {
     books: () => books,
   },
   Book: {
-    __resolveReference(book, { fetchBookByTitle }) {
+    __resolveReference(book) {
       return fetchBookByTitle(book.title)
     }
   }

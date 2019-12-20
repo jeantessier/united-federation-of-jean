@@ -38,12 +38,9 @@ Example query:
 
 ```graphql
 query AllBooks {
-  popularBooks {
+  books {
     title
     author
-  }
-  tolkienBooks {
-    title
     year
   }
 }

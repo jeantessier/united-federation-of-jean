@@ -58,7 +58,7 @@ const resolvers = {
     },
   },
   Book: {
-    __resolveReference(book, { fetchBookByTitle }) {
+    __resolveReference(book) {
       return fetchBookByTitle(book.title)
     }
   }
