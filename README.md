@@ -18,7 +18,7 @@ Graph Manager API key.
 ### Starting the Federated Services
 
 ```bash
-for s in shared-service service-?
+for s in *-service
 do
   (cd $s; npm install; node index.js &)
 done
