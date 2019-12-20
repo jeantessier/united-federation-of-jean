@@ -50,12 +50,19 @@ Example mutation:
 
 ```graphql
 mutation AddPopularTolkienBook($title: String!, $author: String, $year: Int) {
+  addBook(title: $title) {
+    title
+    author
+    year
+  }
   addPopularBook(title: $title, author: $author) {
     title
     author
+    year
   }
   addTolkienBook(title: $title, year: $year) {
     title
+    author
     year
   }
 }
@@ -68,6 +75,30 @@ with values:
   "title": "The Silmarillion",
   "author": "Christopher Tolkien",
   "year": 1977
+}
+```
+
+See how the response shows the entity getting built out:
+
+```json
+{
+  "data": {
+    "addBook": {
+      "title": "The Silmarillion",
+      "author": null,
+      "year": null
+    },
+    "addPopularBook": {
+      "title": "The Silmarillion",
+      "author": "Christopher Tolkien",
+      "year": null
+    },
+    "addTolkienBook": {
+      "title": "The Silmarillion",
+      "author": "Christopher Tolkien",
+      "year": 1977
+    }
+  }
 }
 ```
 
