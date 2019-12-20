@@ -21,7 +21,7 @@ const typeDefs = gql`
   }
   
   type Mutation {
-    addBook(title: String!, author: String): Book
+    addPopularBook(title: String!, author: String): Book
   }
 `;
 
@@ -43,7 +43,7 @@ const resolvers = {
     popularBooks: () => books,
   },
   Mutation: {
-    addBook: async (_, { title, author }) => {
+    addPopularBook: async (_, { title, author }) => {
       const book = { "title": title, "author": author };
       books.push(book);
       return book;
