@@ -19,6 +19,10 @@ const typeDefs = gql`
   type Query {
     tolkienBooks: [Book]
   }
+
+  type Mutation {
+    addBook(title: String!, year: Int): Book
+  }
 `;
 
 const books = [
@@ -45,6 +49,13 @@ const books = [
 const resolvers = {
   Query: {
     tolkienBooks: () => books,
+  },
+  Mutation: {
+    addBook: async (_, { title, year }) => {
+      const book = { title, year };
+      books.push(book);
+      return book;
+    },
   },
   Book: {
     __resolveReference(book, { fetchBookByTitle }) {
