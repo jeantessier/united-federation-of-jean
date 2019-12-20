@@ -33,6 +33,46 @@ done
 
 Point your browser to http://localhost:4000/.
 
+Example query:
+
+```graphql
+query AllBooks {
+  popularBooks {
+    title
+    author
+  }
+  tolkienBooks {
+    title
+    year
+  }
+}
+```
+
+Example mutation:
+
+```graphql
+mutation AddPopularTolkienBook($title: String!, $author: String, $year: Int) {
+  addPopularBook(title: $title, author: $author) {
+    title
+    author
+  }
+  addTolkienBook(title: $title, year: $year) {
+    title
+    year
+  }
+}
+```
+
+with values:
+
+```json
+{
+  "title": "The Silmarillion",
+  "author": "Christopher Tolkien",
+  "year": 1977
+}
+```
+
 ## Coordinating with Graph Manager
 
 Get the aggregate schema into Graph Manager with:
