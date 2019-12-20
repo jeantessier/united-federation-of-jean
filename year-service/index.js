@@ -13,15 +13,8 @@ const typeDefs = gql`
     year: Int
   }
 
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
-  type Query {
-    tolkienBooks: [Book]
-  }
-
   type Mutation {
-    addTolkienBook(title: String!, year: Int): Book
+    addBookYear(title: String!, year: Int): Book
   }
 `;
 
@@ -47,11 +40,8 @@ const books = [
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
 const resolvers = {
-  Query: {
-    tolkienBooks: () => books,
-  },
   Mutation: {
-    addTolkienBook: async (_, { title, year }) => {
+    addBookYear: async (_, { title, year }) => {
       const book = { title, year };
       books.push(book);
       return book;
@@ -70,7 +60,7 @@ const server = new ApolloServer({
   schema: buildFederatedSchema([{ typeDefs, resolvers }])
 });
 
-const port = process.env.PORT || 4002
+const port = process.env.PORT || 4003
 
 // The `listen` method launches a web server.
 server.listen(port).then(({ url }) => {

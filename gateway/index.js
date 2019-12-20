@@ -5,9 +5,9 @@ require('dotenv').config();
 
 const gateway = new ApolloGateway({
   serviceList: [
-    { name: 'shared', url: 'http://localhost:4100' },
-    { name: 'a', url: 'http://localhost:4001' },
-    { name: 'b', url: 'http://localhost:4002' },
+    { name: 'book', url: 'http://localhost:4001' },
+    { name: 'author', url: 'http://localhost:4002' },
+    { name: 'year', url: 'http://localhost:4003' },
   ]
 });
 

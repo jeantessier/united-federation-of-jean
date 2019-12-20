@@ -55,12 +55,12 @@ mutation AddPopularTolkienBook($title: String!, $author: String, $year: Int) {
     author
     year
   }
-  addPopularBook(title: $title, author: $author) {
+  addBookAuthor(title: $title, author: $author) {
     title
     author
     year
   }
-  addTolkienBook(title: $title, year: $year) {
+  addBookYear(title: $title, year: $year) {
     title
     author
     year

@@ -59,7 +59,7 @@ const server = new ApolloServer({
   schema: buildFederatedSchema([{ typeDefs, resolvers }])
 });
 
-const port = process.env.PORT || 4100
+const port = process.env.PORT || 4001
 
 // The `listen` method launches a web server.
 server.listen(port).then(({ url }) => {
