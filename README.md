@@ -110,8 +110,8 @@ Get the aggregate schema into Graph Manager with:
 apollo service:push --endpoint http://localhost:4000 --key [your Graph Manager API key]
 ```
 
-If you are in a folder with a `.env` file, `apollo` will read the key from it if
-you don't provide one on the command line.
+If you are in a folder with a `.env` file, `apollo` will read the key from this
+`.env` file so you don't have to include the key on the command line.
 
 The services and the gateway all must be up and running.
 
