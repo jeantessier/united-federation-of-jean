@@ -20,14 +20,14 @@ Graph Manager API key.
 ```bash
 for s in *-service
 do
-  (cd $s; npm install; node index.js &)
+  (cd $s; npm install; npm start &)
 done
 ```
 
 ### Starting the Gateway
 
 ```bash
-(cd gateway; npm install; node index.js &)
+(cd gateway; npm install; npm start &)
 ```
 
 ### Placing Queries

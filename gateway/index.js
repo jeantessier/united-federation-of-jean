@@ -14,7 +14,6 @@ const gateway = new ApolloGateway({
 // Pass the ApolloGateway to the ApolloServer constructor
 const server = new ApolloServer({
   gateway,
-  engine: { apiKey: process.env.ENGINE_API_KEY },
 
   // Disable subscriptions (not currently supported with ApolloGateway)
   subscriptions: false,

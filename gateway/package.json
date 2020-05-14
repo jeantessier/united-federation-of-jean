@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@apollo/gateway": "^0.11.7",
+    "@apollo/gateway": "^0.16.0",
     "apollo-server": "^2.13.1",
     "dotenv": "^8.2.0",
     "graphql": "^14.6.0"
