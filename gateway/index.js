@@ -3,11 +3,15 @@ const { ApolloGateway } = require("@apollo/gateway");
 
 require('dotenv').config();
 
+const book_service = process.env.BOOK_SERVICE || 'http://localhost:4001'
+const author_service = process.env.AUTHOR_SERVICE || 'http://localhost:4002'
+const year_service = process.env.YEAR_SERVICE || 'http://localhost:4003'
+
 const gateway = new ApolloGateway({
   serviceList: [
-    { name: 'book', url: 'http://localhost:4001' },
-    { name: 'author', url: 'http://localhost:4002' },
-    { name: 'year', url: 'http://localhost:4003' },
+    { name: 'book', url: book_service },
+    { name: 'author', url: author_service },
+    { name: 'year', url: year_service },
   ]
 });
 
@@ -19,6 +23,8 @@ const server = new ApolloServer({
   subscriptions: false,
 });
 
-server.listen().then(({ url }) => {
+const port = process.env.PORT || 4000
+
+server.listen(port).then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });

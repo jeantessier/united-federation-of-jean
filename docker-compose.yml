@@ -1,0 +1,52 @@
+version: '3.7'
+
+#
+# docker-compose up -d
+#
+
+services:
+
+  author:
+    image: node:alpine
+    working_dir: /home/node/app
+    volumes:
+      - ./author-service:/home/node/app
+    environment:
+      - PORT=80
+    command: npm start
+
+  book:
+    image: node:alpine
+    working_dir: /home/node/app
+    volumes:
+      - ./book-service:/home/node/app
+    environment:
+      - PORT=80
+    command: npm start
+
+  year:
+    image: node:alpine
+    working_dir: /home/node/app
+    volumes:
+      - ./year-service:/home/node/app
+    environment:
+      - PORT=80
+    command: npm start
+
+  gateway:
+    image: node:alpine
+    working_dir: /home/node/app
+    volumes:
+      - ./gateway:/home/node/app
+    environment:
+      - PORT=80
+      - BOOK_SERVICE=http://book
+      - AUTHOR_SERVICE=http://author
+      - YEAR_SERVICE=http://year
+    ports:
+      - 4000:80
+    command: npm start
+    depends_on:
+      - author
+      - book
+      - year

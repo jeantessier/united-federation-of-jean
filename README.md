@@ -15,7 +15,29 @@ Graph Manager API key.
 
 ## Running It
 
-### Starting the Federated Services
+### Using Docker-Compose
+
+```bash
+docker-compose up -d
+```
+
+This will run each federated service nicely hidden inside a Docker network,
+where each one appears as its own host, using the default HTTP port 80.  For
+example, within the Docker network, the book service lives at `http://book/`.
+
+The gateway runs inside the Docker network as its own host and using the default
+HTTP port 80.  Inside the Docker network, it lives at `http://gateway`.  But it
+also maps the host's port 4000 to its port 80.  This way, from outside the
+Docker network, it lives at `http://localhost:4000` like a normal Node app.
+
+### Running Them Manually
+
+If you are not using Docker Compose, each application runs directly on the host
+machine.  Since they will share the IP address, we use different port numbers to
+communicate with each one.  For example, the book service lives at
+`http://localhost:4001`.
+
+#### Starting the Federated Services
 
 ```bash
 for s in *-service
@@ -24,13 +46,15 @@ do
 done
 ```
 
-### Starting the Gateway
+#### Starting the Gateway
 
 ```bash
 (cd gateway; npm install; npm start &)
 ```
 
-### Placing Queries
+The gateway lives at `http://localhost:4000` like a normal Node app.
+
+## Placing Queries
 
 Point your browser to http://localhost:4000/.
 
