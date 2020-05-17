@@ -1,0 +1,11 @@
+version: '3.7'
+
+#
+# docker-compose up -d
+#
+
+services:
+
+  gateway:
+    ports:
+      - 4000:80

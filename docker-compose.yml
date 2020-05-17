@@ -43,8 +43,6 @@ services:
       - BOOK_SERVICE=http://book
       - AUTHOR_SERVICE=http://author
       - YEAR_SERVICE=http://year
-    ports:
-      - 4000:80
     command: npm start
     depends_on:
       - author
