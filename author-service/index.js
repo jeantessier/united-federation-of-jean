@@ -49,7 +49,18 @@ const resolvers = {
 const fetchBookByTitle = title => books.find(book => title == book.title);
 
 const server = new ApolloServer({
-  schema: buildFederatedSchema([{ typeDefs, resolvers }])
+  schema: buildFederatedSchema([{ typeDefs, resolvers }]),
+  plugins: [
+    {
+      requestDidStart(requestContext) {
+        console.log('Request did start!');
+        console.log(`    query: ${requestContext.request.query}`);
+        console.log(`    operationName: ${requestContext.request.operationName}`);
+        console.log(`    variables: ${JSON.stringify(requestContext.request.variables)}`);
+        console.log(`    books: ${JSON.stringify(books)}`);
+      }
+    }
+  ],
 });
 
 const port = process.env.PORT || 4002

@@ -21,6 +21,16 @@ const server = new ApolloServer({
 
   // Disable subscriptions (not currently supported with ApolloGateway)
   subscriptions: false,
+  plugins: [
+    {
+      requestDidStart(requestContext) {
+        console.log('Request did start!');
+        console.log(`    query: ${requestContext.request.query}`);
+        console.log(`    operationName: ${requestContext.request.operationName}`);
+        console.log(`    variables: ${JSON.stringify(requestContext.request.variables)}`);
+      }
+    }
+  ],
 });
 
 const port = process.env.PORT || 4000
