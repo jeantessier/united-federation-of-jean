@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@apollo/federation": "^0",
-    "apollo-server": "^2",
-    "graphql": "^15"
+    "@apollo/federation": "*",
+    "apollo-server": "*",
+    "graphql": "*"
   }
 }
